@@ -3,8 +3,8 @@ from sys import argv
 if __name__ == '__main__':
     args = len(argv)
     if args == 2:
-        print('{} argument'.format(args - 1))
+        print('{} argument:'.format(args - 1))
     else:
-        print('{} arguments'.format(args - 1))
+        print('{} arguments{}'.format(args - 1, '.' if args - 1 == 0 else ':'))
     for i in range(1, args):
         print('{}: {}'.format(i, argv[i]))

@@ -5,5 +5,6 @@ if __name__ == '__main__':
     for i in dir(hidden_4):
         if not i.startswith('__'):
             names.append(i)
-    for i in names.sort():
+    names.sort()
+    for i in names:
         print(i)

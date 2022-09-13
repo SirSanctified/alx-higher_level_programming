@@ -3,15 +3,19 @@
 """
 this module is a based on 1-square.py, but contains type checking
 """
+
+
 class Square:
     """ Square class definition """
     def __init__(self, size=0):
         """ class initialization """
         self.size = size
+
     @property
     def size(self):
         """ getter """
         return self.__size
+
     @size.setter
     def size(self, size):
         """ setter """

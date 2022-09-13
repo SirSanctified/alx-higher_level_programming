@@ -3,6 +3,7 @@
 simple, empty squre class
 """
 
+
 class Square:
     """ empty body """
     pass

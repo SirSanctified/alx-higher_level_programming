@@ -1,1 +1,1 @@
-Introductory topics
+Higher level programming in Python

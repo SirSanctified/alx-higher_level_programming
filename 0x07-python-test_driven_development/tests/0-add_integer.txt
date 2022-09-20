@@ -1,0 +1,53 @@
+# doctest in 0-add_integer.txt
+
+===============================
+How to use 0-add_integer.py
+===============================
+
+this library is very simple since it contains a single function 
+`add_integer`
+
+Numbers
+=======
+
+It returns the sum of two numbers
+
+::
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(2, 3)
+	5
+	>>> add_integer(-2, -3)
+	-5
+	>>> add_integer(-1, 1)
+	0
+
+It also works with floats, but they need to be casted to integers first:
+
+::
+	>>> add_integer(0.4, 4.6)
+	4
+	>>> add_integer(-9.8, -1.777)
+	-10
+
+Non-numbers
+===========
+
+Since strings support the `+` operator for concatination,
+we need to make sure that our function behaves correctly.
+In case either `a` or `b` are not integers or floats, 
+the function should raise the `TypeError` exception.
+
+::
+	>>> add_integer(2, 'b')
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+	>>> add_integer('a', 3)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+	>>> add_integer('a', 'b')
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+

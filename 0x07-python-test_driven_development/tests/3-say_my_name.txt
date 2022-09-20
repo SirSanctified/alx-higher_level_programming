@@ -1,0 +1,47 @@
+# doctest in 3-say_my_name.py
+
+This module contains a single function called ``say_my_name()``
+
+Strings
+=======
+
+``say_my_name()`` prints out to the console the first and last name provided 
+to it, the last name is optional
+
+::
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
+	>>> say_my_name("Bob")
+	My name is Bob 
+
+When either firstname or lastname are not strings
+=================================================
+
+``say_my_name()`` throws a TypeError exception
+
+::
+	>>> say_my_name(12, "White")
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+	>>> say_my_name("Smith", 101)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+
+When either first or last name can be immediately converted to numbers
+======================================================================
+
+``say_my_name() throws a TypeError exception
+
+::
+	>>> say_my_name("12", "White")
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+	>>> say_my_name("Smith", "101")
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+

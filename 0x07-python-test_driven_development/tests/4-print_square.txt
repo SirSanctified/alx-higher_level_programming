@@ -1,0 +1,63 @@
+# doctest in 4-print_square.py
+
+Print a squre representation of the given size using ``#``
+
+Size is an integer and not less than zero
+=========================================
+
+``print_square()`` prints the square represantation of the square with the given size
+
+::
+	>>> print_square = __import__('4-print_square').print_square
+	>>> print_square(3)
+	###
+	###
+	###
+	>>> print_square(0)
+
+Size is a float and greater or equal to zero
+============================================
+
+``print_square()`` casts the size to integer and prints the square to console using ``#``
+
+::
+	>>> print_square(5.90)
+	#####
+	#####
+	#####
+	#####
+	#####
+
+Size is an integer less than zero
+=================================
+
+``print_square()`` throws a ValueError exception
+
+::
+	>>> print_square(-10)
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0
+
+Size is float and less than zero
+================================
+
+``print_square()`` throws a TypeError exception
+
+::
+	>>> print_square(-6.34)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+Size is not an integer/float
+============================
+
+``print_square()`` throws a TypeError exception
+
+::
+	>>> print_square("four")
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+

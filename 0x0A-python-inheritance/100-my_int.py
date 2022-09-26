@@ -15,9 +15,3 @@ class MyInt(int):
             invert the == operator
         """
         return True if self != other else False
-
-    def __ne__(self, other):
-        """
-            invert the != operator
-        """
-        return True if self == other else False

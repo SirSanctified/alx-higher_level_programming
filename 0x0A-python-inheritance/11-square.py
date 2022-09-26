@@ -71,4 +71,10 @@ class Square(Rectangle):
         """
             Override the area from base class
         """
-        return size * size
+        return self.__size ** 2
+
+    def __str__(self):
+        """
+            Override the default str method
+        """
+        return "[Square] {}/{}".format(self.__size, self.__size)

@@ -5,7 +5,7 @@
 """
 
 
-class Rectangle(("8-rectangle").BaseGeometry):
+class Rectangle((BaseGeometry):
     """
         Implement all the functionality of BaseGeometry
         Add extra functionality

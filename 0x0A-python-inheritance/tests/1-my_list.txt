@@ -21,3 +21,8 @@
 []
 >>> nw.print_sorted()
 []
+>>> my_list.append("me")
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+    ...
+TypeError: '<' not supported between instances of 'str' and 'int'

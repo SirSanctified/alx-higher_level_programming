@@ -12,7 +12,7 @@ class MyList(list):
     """
         Inherit the list class and extend its functionality
     """
-    
+
     def print_sorted(self):
         """
             Print this list in sorted order

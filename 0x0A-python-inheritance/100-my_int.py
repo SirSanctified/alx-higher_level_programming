@@ -14,10 +14,7 @@ class MyInt(int):
         """
             invert the == operator
         """
-        if self == other:
-            return False
-        else:
-            return False
+        return True if self != other else False
 
     def __ne__(self, other):
         """

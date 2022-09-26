@@ -71,4 +71,4 @@ class Square(Rectangle):
         """
             Override the area from base class
         """
-        return size * size
+        return self.__size ** 2

@@ -5,7 +5,7 @@
 """
 
 
-def append_file(filename='', text=''):
+def append_write(filename='', text=''):
     """
         Append @text to @filename, if @filename doesn't exist, create it
     """

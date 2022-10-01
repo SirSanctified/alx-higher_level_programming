@@ -12,12 +12,12 @@ class Base:
     """
         This class only handles the initialization part with the id attribute
     """
+    __nb_objects = 0
     def __init__(self, id=None):
         """
             Initialise the `id` with the number of instances if supplied id is
             None
         """
-        __nb_objects = 0
         if not id:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects

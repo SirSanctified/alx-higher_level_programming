@@ -156,6 +156,13 @@ class Rectangle(Base):
         """
             returns the dictionary representation of a Rectangle
         """
-        obj_str = '"id": {}, "width": {}, "height": {}, "x": {}, "y": {}'.format(self.id, self.width, self.height, self.x, self.y)
+        obj_str = '"id": {}, "width": {}, "height": {}, "x": {},
+        "y": {}'.format(
+                            self.id,
+                            self.width,
+                            self.height,
+                            self.x,
+                            self.y
+                        )
         obj = '{' + obj_str + '}'
         return json.loads(obj)

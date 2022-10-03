@@ -34,7 +34,8 @@ class Base:
 
                 list_dictionaries is a list of dictionaries
                 If list_dictionaries is None or empty, return the string: "[]"
-                Otherwise, return the JSON string representation of list_dictionaries
+                Otherwise, return the JSON string representation of
+                    list_dictionaries
         """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
@@ -44,10 +45,10 @@ class Base:
     def save_to_file(cls, list_objs):
         """
             writes the JSON string representation of list_objs to a file:
-                > list_objs is a list of instances who inherits of Base 
+                > list_objs is a list of instances who inherits of Base
                     - example: list of Rectangle or list of Square instances
                 > If list_objs is None, save an empty list
-                > The filename must be: <Class name>.json 
+                > The filename must be: <Class name>.json
                     - example: Rectangle.json
                 > Uses the static method to_json_string (created before)
                 > Overwrite the file if it already exists
@@ -81,7 +82,7 @@ class Base:
             **dictionary can be thought of as a double pointer to a dictionary
             To use the update method to assign all attributes, you must create
             a “dummy” instance before:
-                Create a Rectangle or Square instance with “dummy” 
+                Create a Rectangle or Square instance with “dummy”
                     mandatory attributes (width, height, size, etc.)
                 Call update instance method to this “dummy”
                     instance to apply your real values
@@ -161,6 +162,6 @@ class Base:
                     fields = ['id', 'size', 'x', 'y']
                 reader = csv.DictReader(csvfile, fieldnames=fields)
                 list_dicts = [dict([k, int(v)] for k, v in d.items())
-                                for d in reader]
+                              for d in reader]
         except IOError:
             return []

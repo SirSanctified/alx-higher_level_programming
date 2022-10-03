@@ -7,7 +7,7 @@
 
             Class Square inherits from Rectangle
             Class constructor: def __init__(self, size, x=0, y=0, id=None)::
-                Call the super class with id, x, y, width and height 
+                Call the super class with id, x, y, width and height
                         - this super call will use the logic of the __init__
                         of the Rectangle class.
                 The width and height must be assigned to the value of size
@@ -38,10 +38,10 @@ class Square(models.rectangle.Rectangle):
             Override the defualt __str__ method from Rectangle
         """
         return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
-                                                self.id,
-                                                self.x,
-                                                self.y,
-                                               self.width)
+                                             self.id,
+                                             self.x,
+                                             self.y,
+                                             self.width)
 
     @property
     def size(self):

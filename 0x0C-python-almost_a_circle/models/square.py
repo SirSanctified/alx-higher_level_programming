@@ -31,7 +31,7 @@ class Square(models.rectangle.Rectangle):
         """
             Initialise a square with same width and height
         """
-        super().__init__(self.size, self.size, x, y, id)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """
@@ -42,3 +42,57 @@ class Square(models.rectangle.Rectangle):
                                                 self.x,
                                                 self.y,
                                                self.width)
+
+    @property
+    def size(self):
+        """
+            getter for size
+        """
+        return self.width
+
+    @size.setter
+    def size(self, size):
+        """
+            Setter for size using the logic from Rectangle's width setter
+        """
+        self.width = size
+        self.height = size
+
+    def update(self, *args, **kwargs):
+        """
+            assigns attributes:
+
+                *args is the list of arguments - no-keyworded arguments
+                    1st argument should be the id attribute
+                    2nd argument should be the size attribute
+                    3rd argument should be the x attribute
+                    4th argument should be the y attribute
+                **kwargs can be thought of as a double pointer to a
+                    dictionary: key/value (keyworded arguments)
+                **kwargs must be skipped if *args exists and is not empty
+                Each key in this dictionary represents an attribute to the
+                    instance
+        """
+
+        if len(args) > 0:
+            attrs = [self.id, self.size, self.x, self.y]
+            for i in range(len(args)):
+                attrs[i] = args[i]
+            self.id = attrs[0]
+            self.size = attrs[1]
+            self.x = attrs[2]
+            self.y = attrs[3]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+            Returns the dictionary representation of a Square
+        """
+        return {
+                "id": self.id,
+                "size": self.size,
+                "x": self.x,
+                "y": self.y
+                }

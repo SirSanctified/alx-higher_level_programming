@@ -4,6 +4,7 @@
     This module contains  Rectangle class which extends the Base
 """
 from models.base import Base
+import json
 
 
 class Rectangle(Base):
@@ -37,7 +38,7 @@ class Rectangle(Base):
         """
         if width <= 0:
             raise ValueError("width must be > 0")
-        if type(width) != 'int':
+        if not isinstance(width, int):
             raise TypeError("width must be an integer")
         self.__width = width
 
@@ -55,7 +56,7 @@ class Rectangle(Base):
         """
         if height <= 0:
             raise ValueError("height must be > 0")
-        if type(height) != 'int':
+        if not isinstance(height, int):
             raise TypeError("height must be an integer")
         self.__height = height
 
@@ -73,7 +74,7 @@ class Rectangle(Base):
         """
         if x < 0:
             raise ValueError("x must be >= 0")
-        if type(x) != 'int':
+        if not isinstance(x, int):
             raise TypeError("x must be an integer")
         self.__x = x
 
@@ -91,7 +92,7 @@ class Rectangle(Base):
         """
         if y < 0:
             raise ValueError("y must be >= 0")
-        if type(y) != 'int':
+        if not isinstance(y, int):
             raise TypeError("y must be an integer")
         self.__y = y
 
@@ -124,3 +125,37 @@ class Rectangle(Base):
                                                 self.y,
                                                 self.width,
                                                 self.height)
+
+    def update(self, *args, **kwargs):
+        """
+            Assigns an argument to each attribute using *args:
+
+                1st argument should be the id attribute
+                2nd argument should be the width attribute
+                3rd argument should be the height attribute
+                4th argument should be the x attribute
+                5th argument should be the y attribute
+            **kwargs must be skipped if *args exists and is not empty,
+            otherwise use **kwargs
+        """
+
+        if len(args) > 0:
+            attrs = [self.id, self.width, self.height, self.x, self.y]
+            for i in range(len(args)):
+                attrs[i] = args[i]
+            self.id = attrs[0]
+            self.width = attrs[1]
+            self.height = attrs[2]
+            self.x = attrs[3]
+            self.y = attrs[4]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+            returns the dictionary representation of a Rectangle
+        """
+        obj_str = '"id": {}, "width": {}, "height": {}, "x": {}, "y": {}'.format(self.id, self.width, self.height, self.x, self.y)
+        obj = '{' + obj_str + '}'
+        return json.loads(obj)

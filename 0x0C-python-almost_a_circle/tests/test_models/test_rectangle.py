@@ -58,3 +58,24 @@ class TestRectangle(unittest.TestCase):
     def test_str(self):
         rec = Rectangle(12, 7, 2, 1, 5)
         self.assertEqual(str(rec), "[Rectangle] (5) 2/1 - 12/7")
+
+    def test_update_with_args(self):
+        rec = Rectangle(10, 10, 10, 10)
+        rec.update(89)
+        self.assertEqual(str(rec), "[Rectangle] (89) 10/10 - 10/10")
+        rec.update(89, 2)
+        self.assertEqual(str(rec), "[Rectangle] (89) 10/10 - 2/10")
+        rec.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(rec), "[Rectangle] (89) 4/5 - 2/3")
+    
+    def test_update_with_kwargs(self):
+        rec = Rectangle(10, 10, 10, 10)
+        rec.update(id=8, width=1, x=2)
+        self.assertEqual(str(rec), "[Rectangle] (8) 2/10 - 1/10")
+        rec.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(str(rec), "[Rectangle] (89) 3/1 - 2/10")
+
+    def test_to_dictionary(self):
+        rec = Rectangle(10, 10, 10, 10, 10)
+        self.assertEqual(rec.to_dictionary(), {'x': 10, 'y': 10, 'id': 10, 'height': 10, 'width': 10})
+        self.assertEqual(isinstance(rec.to_dictionary(), dict), True)

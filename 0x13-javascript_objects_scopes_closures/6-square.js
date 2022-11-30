@@ -2,11 +2,11 @@
 
 // extend the rectangle class
 
-const Rectangle = require('./4-rectangle.js');
+const Rectangle = require('./5-square.js');
 
 class Square extends Rectangle {
   constructor (size) {
-    super(size, size);
+    super(size);
   }
 
   charPrint (c) {

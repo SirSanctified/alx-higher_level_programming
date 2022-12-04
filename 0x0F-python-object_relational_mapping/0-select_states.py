@@ -4,7 +4,7 @@
     Select states from a database
 """
 
-import sys.argv as argv
+from sys import argv
 import MySQLdb as mysqldb
 
 
@@ -23,6 +23,6 @@ def select(username, password, dbname):
 
 
 if __name__ == '__main__':
-    if argv.len >= 3:
+    if len(argv) >= 3:
         for i in select(argv[1], argv[2], argv[3]):
             print(i)

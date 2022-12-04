@@ -16,7 +16,8 @@ def select(username, password, dbname):
         db = mysqldb.connect(host='localhost', user=username,
                              passwd=password, port=3306)
         cur = db.cursor()
-        cur.execute('SELECT id, name FROM states WHERE name LIKE "N%" ORDER BY id ASC')
+        q = 'SELECT id, name FROM states WHERE name LIKE "N%" ORDER BY id ASC'
+        cur.execute(q)
         rows = cur.fetchall()
         for row in rows:
             if row[1][0] == 'N':

@@ -9,6 +9,9 @@ import MySQLdb as mysqldb
 
 
 def select(username, password, dbname):
+    """
+    Make a connection and perform tge select
+    """
     try:
         db = mysqldb.connect(host='localhost', user=username,
                              passwd=password, port=3306)
@@ -17,3 +20,9 @@ def select(username, password, dbname):
         return cur.fetchall()
     except Exception as e:
         print(str(e))
+
+
+if __name__ == '__main__':
+    if argv.len >= 3:
+        for i in select(argv[1], argv[2], argv[3]):
+            print(i)

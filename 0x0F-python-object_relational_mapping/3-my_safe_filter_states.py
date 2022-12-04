@@ -19,8 +19,8 @@ def main():
                             )
     cur = conn.cursor()
     search = sys.argv[4]
-    cur.execute('SELECT * FROM states WHERE name=%s
-            ORDER BY id ASC', (search,))
+    cur.execute("""SELECT * FROM states WHERE name=%s
+            ORDER BY id ASC""", (search,))
     cur.execute(query)
     row = cur.fetchall()
 

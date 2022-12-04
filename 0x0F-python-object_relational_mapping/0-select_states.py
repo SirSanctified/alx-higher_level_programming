@@ -16,13 +16,16 @@ def select(username, password, dbname):
         db = mysqldb.connect(host='localhost', user=username,
                              passwd=password, port=3306)
         cur = db.cursor()
-        cur.execute('SELECT * FROM states ORDERED BY states.id ASC')
-        return cur.fetchall()
+        cur.execute('SELECT id, name FROM states ORDER BY id ASC')
+        rows = cur.fetchall()
+        for row in rows:
+            print(row)
+        cur.close()
+        db.close()
     except Exception as e:
         print(str(e))
 
 
 if __name__ == '__main__':
-    if len(argv) >= 3:
-        for i in select(argv[1], argv[2], argv[3]):
-            print(i)
+    if len(argv) == 3:
+        select(argv[1], argv[2], argv[3])

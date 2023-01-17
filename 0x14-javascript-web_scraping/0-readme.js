@@ -7,6 +7,6 @@ const filename = process.argv[2];
 
 fs.readFile(filename, 'utf-8')
   .then((text) => {
-    console.log(text);
+    process.stdout.write(text);
   })
-  .catch((err) => console.error(err));
+  .catch((err) => console.log(err));
